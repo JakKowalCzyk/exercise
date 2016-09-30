@@ -1,4 +1,4 @@
-package com.kowalczyk.exercise;
+package com.kowalczyk.exercise.enums;
 
 /**
  * Created by bofort on 29.09.16.
