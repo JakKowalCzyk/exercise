@@ -1,6 +1,6 @@
-package com.kowalczyk.exercise.dao;
+package com.kowalczyk.exercise.model.dao;
 
-import com.kowalczyk.exercise.entity.Restaurant;
+import com.kowalczyk.exercise.model.entity.Restaurant;
 import com.kowalczyk.exercise.enums.FoodType;
 
 import java.util.List;

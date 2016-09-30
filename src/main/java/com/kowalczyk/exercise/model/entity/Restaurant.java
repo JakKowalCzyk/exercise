@@ -1,20 +1,22 @@
-package com.kowalczyk.exercise.entity;
+package com.kowalczyk.exercise.model.entity;
 
 import com.kowalczyk.exercise.enums.FoodType;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by bofort on 29.09.16.
  */
 @Entity
 public class Restaurant {
+
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private FoodType foodType;
 
     private int positionX;

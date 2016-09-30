@@ -1,7 +1,7 @@
-package com.kowalczyk.exercise.daoimpl;
+package com.kowalczyk.exercise.model.daoimpl;
 
-import com.kowalczyk.exercise.dao.RestaurantDao;
-import com.kowalczyk.exercise.entity.Restaurant;
+import com.kowalczyk.exercise.model.dao.RestaurantDao;
+import com.kowalczyk.exercise.model.entity.Restaurant;
 import com.kowalczyk.exercise.enums.FoodType;
 
 import javax.persistence.EntityManager;
