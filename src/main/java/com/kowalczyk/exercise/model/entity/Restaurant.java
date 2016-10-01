@@ -1,6 +1,7 @@
 package com.kowalczyk.exercise.model.entity;
 
 import com.kowalczyk.exercise.enums.FoodType;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,7 +13,8 @@ import javax.persistence.*;
 public class Restaurant {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GenericGenerator(name="kaugen" , strategy="increment")
+    @GeneratedValue(generator="kaugen")
     private int id;
 
     private String name;
