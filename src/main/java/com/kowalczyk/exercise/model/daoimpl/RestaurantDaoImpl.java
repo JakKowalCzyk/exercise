@@ -3,6 +3,7 @@ package com.kowalczyk.exercise.model.daoimpl;
 import com.kowalczyk.exercise.model.dao.RestaurantDao;
 import com.kowalczyk.exercise.model.entity.Restaurant;
 import com.kowalczyk.exercise.enums.FoodType;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * Created by bofort on 29.09.16.
  */
+@Repository
 public class RestaurantDaoImpl implements RestaurantDao {
 
     private static final String getAllRestaurants = "SELECT o FROM restaurant o";
