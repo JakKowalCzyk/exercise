@@ -14,9 +14,9 @@ public class RestaurantDTO {
 
     private FoodType foodType;
 
-    private int distance;
+    private double distance;
 
-    public RestaurantDTO(String name, FoodType foodType, int distance) {
+    public RestaurantDTO(String name, FoodType foodType, double distance) {
         this.name = name;
         this.foodType = foodType;
         this.distance = distance;
@@ -38,11 +38,11 @@ public class RestaurantDTO {
         this.foodType = foodType;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 }

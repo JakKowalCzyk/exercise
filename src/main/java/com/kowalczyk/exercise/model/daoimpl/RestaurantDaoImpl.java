@@ -16,8 +16,8 @@ import java.util.List;
 @Repository
 public class RestaurantDaoImpl implements RestaurantDao {
 
-    private static final String getAllRestaurants = "SELECT o FROM restaurant o";
-    private static final String getRestaurantsByFoodSql = "SELECT o FROM restaurant o WHERE o.foodType = :foodType";
+    private static final String getAllRestaurants = "SELECT o FROM Restaurant o";
+    private static final String getRestaurantsByFoodSql = "SELECT o FROM Restaurant o WHERE o.foodType = :foodType";
 
     @PersistenceContext
     private EntityManager entityManager;

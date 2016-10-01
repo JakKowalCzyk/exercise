@@ -23,6 +23,7 @@ public class RestaurantService {
     @Autowired
     private RestaurantDao restaurantDao;
     private UserPointDTO userPointDTO;
+    private int powPower = 2;
 
     public void setUserPointDTO(UserPointDTO userPointDTO) {
         this.userPointDTO = userPointDTO;
@@ -47,7 +48,7 @@ public class RestaurantService {
 
     public List<RestaurantDTO> sortRestaurantsDTOs(){
         List<RestaurantDTO> restaurantDTOList = this.createRestauarantsDTOs();
-        Collections.sort(restaurantDTOList, (o1, o2) -> o1.getDistance() - o2.getDistance());
+        Collections.sort(restaurantDTOList, (o1, o2) -> Double.compare(o1.getDistance(),o2.getDistance()));
         return restaurantDTOList;
     }
 
@@ -56,10 +57,10 @@ public class RestaurantService {
                 countTwoPointsDistance(userPointDTO.getX(), userPointDTO.getY(), restaurant.getPositionX(), restaurant.getPositionY()));
     }
 
-    public int countTwoPointsDistance(int xa, int ya, int xb, int yb) {
-        double first = Math.pow(getBSubtractA(xa, xb), getBSubtractA(xa, xb));
-        double second = Math.pow(getBSubtractA(ya, yb), getBSubtractA(ya, yb));
-        return (int) Math.sqrt(first + second);
+    public double countTwoPointsDistance(int xa, int ya, int xb, int yb) {
+        double first = Math.pow(getBSubtractA(xa, xb), powPower);
+        double second = Math.pow(getBSubtractA(ya, yb), powPower);
+        return Math.sqrt(first + second);
     }
 
     private double getBSubtractA(int a, int b) {

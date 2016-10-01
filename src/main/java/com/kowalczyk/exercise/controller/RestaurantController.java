@@ -36,4 +36,9 @@ public class RestaurantController {
     public ResponseEntity getRestaurantByFoodType(@PathVariable FoodType foodType){
         return new ResponseEntity(restaurantService.getRestaurantsByFoodType(foodType), HttpStatus.OK);
     }
+
+    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
+    public ResponseEntity getRestaurants(){
+        return new ResponseEntity(restaurantService.getAllRestaurants(), HttpStatus.OK);
+    }
 }

@@ -8,6 +8,7 @@ import javax.persistence.*;
  * Created by bofort on 29.09.16.
  */
 @Entity
+@Table(name = "restaurant")
 public class Restaurant {
 
     @Id
