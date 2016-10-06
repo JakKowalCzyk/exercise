@@ -26,6 +26,13 @@ public class Restaurant {
 
     private int positionY;
 
+    public Restaurant(String name, FoodType foodType, int positionX, int positionY) {
+        this.name = name;
+        this.foodType = foodType;
+        this.positionX = positionX;
+        this.positionY = positionY;
+    }
+
     public int getId() {
         return id;
     }

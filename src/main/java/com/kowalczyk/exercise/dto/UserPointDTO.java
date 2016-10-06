@@ -8,9 +8,9 @@ public class UserPointDTO {
     private int x;
     private int y;
 
-    public UserPointDTO(int y, int x) {
-        this.y = y;
+    public UserPointDTO(int x, int y) {
         this.x = x;
+        this.y = y;
     }
 
     public int getX() {

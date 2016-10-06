@@ -7,7 +7,6 @@ import com.kowalczyk.exercise.model.dao.RestaurantDao;
 import com.kowalczyk.exercise.model.entity.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.stream.Collectors;
  * Created by JK on 2016-09-30.
  */
 @Service
-@Transactional
 public class RestaurantService {
 
     @Autowired
@@ -41,18 +39,18 @@ public class RestaurantService {
         return restaurantDao.getRestaurantsByFoodType(foodType);
     }
 
-    public List<RestaurantDTO> createRestauarantsDTOs() {
-        List<RestaurantDTO> restaurantDTOs = getAllRestaurants().stream().map(restaurant -> makeRestaurantDTO(restaurant)).collect(Collectors.toList());
+    public List<RestaurantDTO> createRestaurantsDTOs() {
+        List<RestaurantDTO> restaurantDTOs = getAllRestaurants().stream().map(restaurant -> convertRestaurantToRestaurantDTO(restaurant)).collect(Collectors.toList());
         return restaurantDTOs;
     }
 
     public List<RestaurantDTO> sortRestaurantsDTOs(){
-        List<RestaurantDTO> restaurantDTOList = this.createRestauarantsDTOs();
+        List<RestaurantDTO> restaurantDTOList = this.createRestaurantsDTOs();
         Collections.sort(restaurantDTOList, (o1, o2) -> Double.compare(o1.getDistance(),o2.getDistance()));
         return restaurantDTOList;
     }
 
-    private RestaurantDTO makeRestaurantDTO(Restaurant restaurant) {
+    public RestaurantDTO convertRestaurantToRestaurantDTO(Restaurant restaurant) {
         return new RestaurantDTO(restaurant.getName(), restaurant.getFoodType(),
                 countTwoPointsDistance(userPointDTO.getX(), userPointDTO.getY(), restaurant.getPositionX(), restaurant.getPositionY()));
     }
@@ -63,7 +61,7 @@ public class RestaurantService {
         return Math.sqrt(first + second);
     }
 
-    private double getBSubtractA(int a, int b) {
+    public int getBSubtractA(int a, int b) {
         return b - a;
     }
 }
